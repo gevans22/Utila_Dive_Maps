@@ -100,7 +100,7 @@ app.get('/', function(req, res){
   res.render('index', { user: req.user });
 });
 
-app.get('/account', ensureAuthenticated, function(req, res){
+app.get('/account', ensureAuthenticated(), function(req, res){
   res.render('account', { user: req.user });
 });
 
@@ -131,7 +131,7 @@ app.get('/register', function(req, res){
 
 var shred = new Shred();
 
-app.get('/map/:ID', function(req, res){
+app.get('/map/:ID', ensureAuthenticated(), function(req, res){
   var shop_id = req.params.ID;
   var queriesComplete = 0;
   var totalNumberOfQueries = 2;
@@ -189,7 +189,7 @@ app.get('/map/:ID', function(req, res){
     });
   }
 });
-app.get('/maps/Utila', function(req, res){
+app.get('/maps/Utila', ensureAuthenticated(), function(req, res){
   var shop_id = req.params.ID;
   var queriesComplete = 0;
   var totalNumberOfQueries = 2;
