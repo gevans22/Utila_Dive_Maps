@@ -1,0 +1,19 @@
+<% layout('layout') -%>
+
+<div class="row">
+    <div class="span4 offset4">
+      <div class="well">
+        <legend>Sign in to Utila Dive Maps</legend>
+        <form method="POST" action="/login" accept-charset="UTF-8">
+            <div class="alert alert-error">
+                <a class="close" data-dismiss="alert" href="#">x</a>Incorrect Username or Password!
+            </div>      
+            <input class="span3" placeholder="Username" type="text" name="username">
+            <input class="span3" placeholder="Password" type="password" name="password"> 
+            <button class="btn-info btn" type="submit" value="Submit">Login</button>      
+        </form>    
+      </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,21 @@
+<% layout('layout') -%>
+<% if (!user) { %>
+	<h2 style= "text-align: center; margin-top: 7%;">Welcome to Utila Dive Maps</h2>
+	<h3 style= "text-align: center; margin-top: 7%;"><a href='/login'> Login </a></h3>
+<% } else { %>
+<div style='text-align: center; margin-top: 3%;'>
+	<h2>Hello, <%= user.username %>.</h2> <br>
+	<% if(user.viewers) { %>
+		<h3> Your Maps <h3> <br>
+		<a href='/maps/Utila/'> Utila Dive Sites and Shops </a> <br>
+		<% for(var i=0; i < user.viewers.length; i++) {%>
+			<a href='/map/<%= i+1 %>/'> <%= user.viewers[i].replace(/_/g, ' ') %> </a> <br>
+		<% } %>
+	<% } else { %>
+		<h3> You are account is not currently authorized for any maps </h3>
+	<% } %>
+</div>
+<% } %>
+<div style='text-align: center; margin-top: 3%;'>
+	<h6 style= "text-align: center; margin-top: 7%;"> Data Disclaimer: Data used in this map is for testing only. Dive sites and shop locations are real, however which dive sites are attributed to which dive shops were randomly selected.</h6>
+</div>
